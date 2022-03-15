@@ -3,7 +3,7 @@ public class Conta {
 
 private int numero;
 private int agencia;
-private float saldo;
+protected float saldo;
 
 public Conta(int numero, int agencia, float saldo) {
 	this.numero = numero;
@@ -11,8 +11,8 @@ public Conta(int numero, int agencia, float saldo) {
 	this.saldo = saldo;
 }
 
-public void saca(float valor) {
-	this.saldo -= valor;
+public void saca(double d) {
+	this.saldo -= d;
 }
 
 public void deposita(float valor) {
