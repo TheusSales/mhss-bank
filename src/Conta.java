@@ -11,8 +11,13 @@ public Conta(int numero, int agencia, float saldo) {
 	this.saldo = saldo;
 }
 
-public void saca(double d) {
-	this.saldo -= d;
+public void saca(double valor) {
+	if(this.saldo > valor) {
+		this.saldo -= valor;
+	}
+	else {
+		System.out.println("Saldo insuficiente! Não foi possível efetuar o saque");
+	}
 }
 
 public void deposita(float valor) {
@@ -20,8 +25,13 @@ public void deposita(float valor) {
 }
 
 public void transfere(float valor,Conta c1,Conta c2 ) {
-	c1.saca(valor);
-	c2.deposita(valor);
+	if(c1.getSaldo() >= valor) {
+		c1.saca(valor);
+		c2.deposita(valor);
+	}
+	else {
+		System.out.println("Saldo insuficiente! Não foi possível fazer o saque");
+	}
 }
 
 public int getNumero() {
